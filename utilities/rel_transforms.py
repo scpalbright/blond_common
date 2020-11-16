@@ -243,6 +243,6 @@ def delta_E_to_delta_P(deltaE, energy, rest_mass=None, n_nuc=None, atomic_mass=N
     rest_mass = _get_mass(rest_mass, n_nuc, atomic_mass)
 
     momentum = energy_to_momentum(energy, rest_mass)
-    deltaP = energy - np.sqrt(rest_mass**2 + (deltaE + momentum)**2)
+    deltaP = np.sqrt((energy + deltaE)**2 - rest_mass**2) - momentum
     
     return deltaP
