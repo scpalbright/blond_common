@@ -24,7 +24,7 @@ class Beam_Parameters:
         if use_samples is None:
             use_samples = list(range(len(self.ring.use_turns)))
         
-        self.use_samples = use_samples       
+        self.use_samples = use_samples
         self.n_samples = len(self.use_samples)
 
         if init_coord is None:
@@ -91,11 +91,12 @@ class Beam_Parameters:
         '''
 
         if sample is None:
-            for s in range(self.n_samples):
+            # for s in range(self.n_samples):
+            for i, s in enumerate(self.use_samples):
                 time, well, vWave = self.sample_potential_well(s)
-                self.volt_wave_array[s] = vWave
-                self.time_window_array[s] = time
-                self.potential_well_array[s] = well
+                self.volt_wave_array[i] = vWave
+                self.time_window_array[i] = time
+                self.potential_well_array[i] = well
 
         else:
             time, well, vWave = self.sample_potential_well(sample)
