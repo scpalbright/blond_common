@@ -325,7 +325,7 @@ class Beam_Parameters:
                 
         '''
 
-        pars = self.ring.parameters_at_sample(sample)
+        pars = self.ring.parameters_at_sample(self.use_samples[sample])
 
         time, well = self.cut_well(sample, particle)
 
